@@ -1,0 +1,55 @@
+#Test the base URL
+GET http://localhost:8081
+
+### Create a user
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+    "firstName": "Brian",
+    "lastName": "kemboi",
+    "email": "kemboi@gmail.com",
+    "password": "mypassword123"
+}
+
+### create a todo
+POST http://localhost:8081/todo
+Content-Type: application/json
+
+{
+    "todoName": "delete a todo",
+    "description": "used for demo persposes",
+    "userId": 3,
+    "dueDate": "2025-09-01",
+    "isCompleted": true
+}
+
+### Get all todos
+GET http://localhost:8081/todos
+
+### Get a todo by ID
+GET http://localhost:8081/todo/4
+
+### Update a todo
+PUT http://localhost:8081/todo/3
+Content-Type: application/json
+
+{
+    "todoName": "Go to the gym",
+    "description": "Evening workout session",
+    "userId": 3,
+    "dueDate": "2025-09-01",
+    "isCompleted": true
+}
+
+### Delete a todo
+DELETE http://localhost:8081/todo/4
+
+### Login a user
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+    "email": "kemboi@gmail.com",
+    "password": "mypassword123"
+}
